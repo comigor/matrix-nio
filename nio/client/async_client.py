@@ -794,6 +794,8 @@ class AsyncClient(Client):
         if self.config.custom_headers is not None:
             headers.update(self.config.custom_headers)
 
+        headers["Authorization"] = f"Bearer {self.access_token}"
+
         got_429 = 0
         max_429 = self.config.max_limit_exceeded
 

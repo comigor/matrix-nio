@@ -319,6 +319,7 @@ class Api:
         built_path = f"{base_path}/{quoted_path}".rstrip("/")
 
         if query_parameters:
+            query_parameters.pop('access_token')
             built_path += f"?{urlencode(query_parameters)}"
 
         return built_path
